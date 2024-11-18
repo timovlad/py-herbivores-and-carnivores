@@ -18,8 +18,8 @@ class Animal:
 
 
 class Herbivore(Animal):
-    def hide(self) -> None:
-        self.hidden = not self.hidden
+    def __init__(self, name: str, health: int = 100) -> None:
+        super().__init__(name, health)
 
 
 class Carnivore(Animal):
