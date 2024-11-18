@@ -7,8 +7,9 @@ class Animal:
         self.hidden = False
         Animal.alive.append(self)
 
-    def __del__(self) -> None:
-        Animal.alive.remove(self)
+    def die(self) -> None:
+        if self in Animal.alive:
+            Animal.alive.remove(self)
 
     def __repr__(self) -> None:
         return (f"{{Name: {self.name}, "
@@ -22,8 +23,8 @@ class Herbivore(Animal):
 
 
 class Carnivore(Animal):
-    def bite(self, herbivore: Animal) -> None:
+    def bite(self, herbivore: Herbivore) -> None:
         if isinstance(herbivore, Herbivore) and not herbivore.hidden:
             herbivore.health -= 50
             if herbivore.health <= 0:
-                del herbivore
+                herbivore.die()
