@@ -1,11 +1,10 @@
 class Animal:
     alive = []
-    hidden: bool = False
 
-    def __init__(self, name: str) -> None:
+    def init(self, name: str, health: int = 100, hidden: bool = False) -> None:
         self.name = name
-        self.health = 100
-        self.hidden = False
+        self.health = health
+        self.hidden = hidden
         Animal.alive.append(self)
 
     def die(self) -> None:
