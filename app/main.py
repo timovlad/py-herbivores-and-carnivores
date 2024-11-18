@@ -21,7 +21,7 @@ class Herbivore(Animal):
     def __init__(self, name: str,
                  health: int = 100,
                  hidden: bool = False) -> None:
-        super().__init__(name, health, hidden)
+        super().__init__(name)
 
     def hide(self) -> None:
         self.hidden = not self.hidden
