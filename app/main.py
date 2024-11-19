@@ -20,5 +20,14 @@ class Animal:
 
 
 class Herbivore(Animal):
-    def __init__(self, name: str, health: int = 100) -> None:
-        super().__init__(name)
+
+    def hide(self) -> None:
+        self.hidden = not self.hidden
+
+
+class Carnivore(Animal):
+    def bite(self, herbivore: Herbivore) -> None:
+        if isinstance(herbivore, Herbivore) and not herbivore.hidden:
+            herbivore.health -= 50
+        if herbivore.health <= 0:
+            herbivore.die()
